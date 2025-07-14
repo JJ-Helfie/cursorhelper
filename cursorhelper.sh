@@ -12,7 +12,7 @@ Options:
   -h, --help    Show this help message and exit
 
 Input format example:
-  Version: 0.45.10
+  Version: 1.2.4 (Universal)
   Commit: 15746f716efa868ebac16b1675bad2714d6c27d0
   ...
 
@@ -50,7 +50,7 @@ if [[ -z "$input" ]]; then
 fi
 
 # Extract version and commit, stripping whitespace
-version=$(echo "$input" | grep "^Version:" | sed 's/^Version:\s*\([0-9.]*\)\s*$/\1/')
+version=$(echo "$input" | grep "^Version:" | sed 's/^Version:\s*\([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/')
 commit=$(echo "$input" | grep "^Commit:" | sed 's/^Commit:\s*\([a-f0-9]*\)\s*$/\1/')
 
 # Validate version and commit
